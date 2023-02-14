@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Jokes</title>
+    <script src="https://kit.fontawesome.com/31f095b2b7.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./src/styles.css">
+</head>
+
+<body class=" bg-[url('/src/assets/bg.jpg')] bg-cover bg-y-repeat bg-center font-body">
+    <div class="bg-black bg-opacity-70 min-h-screen">
+        <div class="text-center">
+            <button
+                class="mt-12 px-4 py-2 text-lime-400 text-2xl  hover:border-black rounded-lg btn hover:scale-105 duration-300 font-bold border hover:bg-red-400 hover:text-red-100 border-white">Get
+                New Joke</button>
+            <div
+                class="m-6 flex justify-center items-center border-[.3px] rounded-xl border-zinc-400 p-4 text-center w-[90%]  lg:w-[77%] mx-auto">
+                <p class="result md:text-3xl m-2 pr-5 w-[66%] text-white"></p>
+                <div>
+                    <div class="flex my-auto border-[.3px] rounded-xl border-zinc-400">
+                        <i class="fa-regular fa-clipboard fa-2x text-red-300 m-3 copy hidden hover:scale-110"
+                            title="COPY"></i>
+                        <i class="fa-regular fa-star fa-2x text-yellow-500  m-3  star hidden hover:scale-110"
+                            title="STAR"></i>
+                        <i class=" fa-solid fa-volume-high fa-2x  text-lime-300 m-3 speak hidden hover:scale-110"
+                            title="SPEAK"></i>
+                    </div>
+                    <p class="alert1 h-8 pt-1 text-white border-[.3px] rounded-xl border-zinc-400 mt-2 hidden">Options
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div
+            class="text-center jokes-container flex flex-col items-center w-[90%] lg:w-[77%]  rounded-xl border-zinc-400 p-4 mx-auto ">
+            <h1 class="text-2xl jokes-heading text-zinc-100 font-extrabold mt-3 hover:scale-105 duration-300 "></h1>
+            <div class="jokes-list mt-4 mb-3"></div>
+            <input type="text" placeholder="Enter Your Joke" name="city" autocomplete="off"
+                class="h-10 p-2 w-[80%] md:w-[66%] lg:w-[55%] rounded-md text-black opacity-80 input invisible ">
+            <div class="flex gap-4 m-3">
+                <button
+                    class="border rounded-md px-4 py-2 text-yellow-400 hover:bg-red-400 hover:text-red-100 add-btn hover:scale-105 duration-300 font-extrabold">Add
+                    Joke</button>
+                <button
+                    class="border rounded-md px-4 py-2 text-yellow-400 hover:bg-red-400 hover:text-red-100  clear-list hidden hover:scale-105 duration-300 font-extrabold">Clear
+                    List</button>
+            </div>
+            <p class="alert2 px-3 text-white border-[.3px] rounded-xl border-zinc-400 invisible">Options</p>
+        </div>
+        <p class="h-12"></p>
+    </div>
+    <script src="./src/script.js"></script>
+</body>
+
+</html>
