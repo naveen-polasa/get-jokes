@@ -1,3 +1,5 @@
+/**** selectors ****/
+
 const btn = document.querySelector(".btn");
 const result = document.querySelector(".result");
 const star = document.querySelector(".star");
@@ -13,6 +15,8 @@ const addBtn = document.querySelector(".add-btn");
 const input = document.querySelector(".input");
 
 const url = "https://icanhazdadjoke.com/";
+
+/**** event listeners ****/
 
 window.addEventListener("DOMContentLoaded", setupItems);
 
@@ -78,6 +82,8 @@ addBtn.addEventListener("click", () => {
   input.value = "";
 });
 
+/**** fetching joke ****/
+
 const fetchJoke = async (url) => {
   result.textContent = "Loading...";
   try {
@@ -101,6 +107,8 @@ const fetchJoke = async (url) => {
     console.log(error);
   }
 };
+
+/**** utility functions ****/
 
 function removeItem(e) {
   const el =
@@ -134,6 +142,8 @@ function textToSpeech(text) {
   const speech = new SpeechSynthesisUtterance(text);
   synth.speak(speech);
 }
+
+/**** dealing with local storage ****/
 
 function getLocalStorage() {
   return localStorage.getItem("jokes")
@@ -175,6 +185,8 @@ const addToLocalStorage = (joke) => {
   localStorage.setItem("jokes", JSON.stringify(jokes));
 };
 
+/**** setting up items ****/
+
 function setupItems() {
   const jokesData = getLocalStorage();
 
@@ -204,12 +216,12 @@ function createItems(joke, id) {
   attr.value = id;
   element.setAttributeNode(attr);
 
-  element.innerHTML = `<div class='flex justify-between items-center p-2 border-[.3px] rounded-xl border-zinc-500'>
-        <p class='lg:text-xl m-2 mx-auto px-3 text-center text-white'>${joke}</p>
-        <div class='flex-col'>
+  element.innerHTML = `<div class='flex flex-col gap-2 md:flex-row  justify-between items-center p-2 border-[.3px] rounded-xl border-zinc-500'>
+        <p class='text-lg lg:text-xl m-2 mx-auto px-3 text-center text-white'>${joke}</p>
+        <div class='flex flex-col'>
         <div class="flex items-center border-[.3px] rounded-xl border-zinc-400 ">
                     <i class="fa-regular fa-clipboard fa-xl mx-3 mb-1 mt-2 copy-${id} hover:scale-110 text-indigo-400" title="COPY"></i>
-                    <i class=" fa-solid fa-volume-high fa-xl mx-3 mb-1 mt-2 hover:scale-110 text-teal-200 speak1" title="SPEAK"></i>
+                    <i class=" fa-solid fa-volume-high fa-xl mx-3 mb-1 mt-2 hover:scale-110 text-teal-200 speak1" title="LISTEN"></i>
                     <i class="fa-solid fa-xmark fa-2x text-red-600 mx-3 mb-1 mt-2 remove hover:scale-125 duration-300" title="REMOVE"></i>
                     </div>
         <p class="pt-1 h-9 text-white border-[.3px] rounded-xl border-zinc-400 mt-1">Options</p>
@@ -236,5 +248,7 @@ function createItems(joke, id) {
     btn.addEventListener("click", removeItem);
   });
 }
+
+/**** joke fetch on initial load ****/
 
 fetchJoke(url);
